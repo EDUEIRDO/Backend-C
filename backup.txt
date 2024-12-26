@@ -1,0 +1,57 @@
+#include <microhttpd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "database.h"
+
+#define PORT 8888
+
+static int send_response(struct MHD_Connection *connection, const char *message) {
+    struct MHD_Response *response;
+    int ret;
+
+    response = MHD_create_response_from_buffer(strlen(message), (void *)message, MHD_RESPMEM_PERSISTENT);
+    ret = MHD_queue_response(connection, MHD_HTTP_OK, response);
+    MHD_destroy_response(response);
+    return ret;
+}
+
+static int request_handler(void *cls, struct MHD_Connection *connection, const char *url,
+                           const char *method, const char *version, const char *upload_data,
+                           size_t *upload_data_size, void **con_cls) {
+    if (strcmp(method, "GET") == 0 && strcmp(url, "/users") == 0) {
+        char *users = get_all_users();
+        int ret = send_response(connection, users);
+        free(users);
+        return ret;
+    } else if (strcmp(method, "POST") == 0 && strcmp(url, "/users") == 0) {
+        char name[50], email[50];
+        MHD_get_connection_values(connection, MHD_POSTDATA_KIND, [](void *cls, enum MHD_ValueKind kind, const char *key, const char *value) {
+            if (strcmp(key, "name") == 0) strncpy(cls, value, 49);
+            if (strcmp(key, "email") == 0) strncpy(cls + 50, value, 49);
+            return MHD_YES;
+        }, name);
+        create_user(name, email);
+        return send_response(connection, "User created");
+    }
+    return send_response(connection, "Not Found");
+}
+
+int main() {
+    struct MHD_Daemon *daemon;
+
+    if (!init_db()) {
+        fprintf(stderr, "Failed to initialize database\n");
+        return 1;
+    }
+
+    daemon = MHD_start_daemon(MHD_USE_SELECT_INTERNALLY, PORT, NULL, NULL, &request_handler, NULL, MHD_OPTION_END);
+    if (NULL == daemon) return 1;
+
+    printf("Server running on port %d\n", PORT);
+    getchar(); // Press Enter to stop the server
+
+    MHD_stop_daemon(daemon);
+    close_db();
+    return 0;
+}
