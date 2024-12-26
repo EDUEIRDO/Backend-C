@@ -1,0 +1,33 @@
+[Thu Dec 26 14:42:33 2024]Server started on port 8888
+[Thu Dec 26 14:43:07 2024]Server started on port 8888
+[Thu Dec 26 14:43:45 2024]Received GET request to /users
+[Thu Dec 26 14:46:18 2024]Server started on port 8888
+[Thu Dec 26 14:46:27 2024]Received POST request to /users with Name=, Email=
+[Thu Dec 26 14:46:27 2024]POST /users processed in 0.000182 seconds
+[Thu Dec 26 14:52:50 2024]Server started on port 8888
+[Thu Dec 26 14:53:08 2024]Received POST request to /users with Name=, Email=
+[Thu Dec 26 14:53:08 2024]POST /users processed in 0.001698 seconds
+[Thu Dec 26 14:53:08 2024]Processing POST data: upload_data_size=0, user_data=
+[Thu Dec 26 14:54:27 2024]Received POST request to /users with Name=, Email=
+[Thu Dec 26 14:54:27 2024]POST /users processed in 0.001870 seconds
+[Thu Dec 26 14:54:27 2024]Processing POST data: upload_data_size=0, user_data=
+[Thu Dec 26 14:59:06 2024]Server started on port 8888
+[Thu Dec 26 14:59:16 2024]Received POST request to /users with Name=, Email=
+[Thu Dec 26 14:59:16 2024]POST /users processed in 0.002100 seconds
+[Thu Dec 26 14:59:16 2024]Processing POST data: upload_data_size=0, user_data=
+[Thu Dec 26 14:59:33 2024]Received POST request to /users with Name=, Email=
+[Thu Dec 26 14:59:33 2024]POST /users processed in 0.002168 seconds
+[Thu Dec 26 14:59:33 2024]Processing POST data: upload_data_size=0, user_data=
+[Thu Dec 26 15:17:19 2024]Server started on port 8888
+[Thu Dec 26 15:17:32 2024]Received POST request to /users with Name=, Email=
+[Thu Dec 26 15:17:32 2024]POST /users processed in 0.001740 seconds
+[Thu Dec 26 15:17:55 2024]Server started on port 8888
+[Thu Dec 26 15:18:09 2024]Received POST request to /users with Name=, Email=
+[Thu Dec 26 15:18:09 2024]POST /users processed in 0.002066 seconds
+[Thu Dec 26 15:19:27 2024] Server started on port 8888
+[Thu Dec 26 15:19:46 2024] Received POST request to /users with Name=, Email=
+[Thu Dec 26 15:19:46 2024] POST /users processed in 0.001751 seconds
+[Thu Dec 26 15:20:01 2024] Received POST request to /users with Name=, Email=
+[Thu Dec 26 15:20:01 2024] POST /users processed in 0.001575 seconds
+[Thu Dec 26 15:20:05 2024] Received POST request to /users with Name=, Email=
+[Thu Dec 26 15:20:06 2024] POST /users processed in 0.001721 seconds

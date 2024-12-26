@@ -85,4 +85,3 @@ char *get_all_users() {
     sqlite3_finalize(stmt);
     return result;
 }
-
